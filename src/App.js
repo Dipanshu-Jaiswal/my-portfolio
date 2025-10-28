@@ -4,13 +4,55 @@ import './App.css';
 const App = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [theme, setTheme] = useState('light');
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [showCertificateModal, setShowCertificateModal] = useState(false);
 
   const sections = [
     { id: 'home', name: 'Home' },
     { id: 'about', name: 'About' },
     { id: 'skills', name: 'Skills' },
     { id: 'projects', name: 'Projects' },
+    { id: 'certificates', name: 'Certificates' },
     { id: 'contact', name: 'Contact' }
+  ];
+
+  const certificates = [
+    {
+      id: 1,
+      title: "JAVA with DSA",
+      issuer: "Apna College",
+      date: "2023",
+      description: "Comprehensive Java programming with Data Structures and Algorithms",
+      pdfUrl: "/certificates/java-dsa-certificate.pdf", // Replace with actual path
+      thumbnail: "/certificates/java-dsa-thumbnail.jpg" // You can create thumbnails
+    },
+    {
+      id: 2,
+      title: "Technical English for Engineers",
+      issuer: "NPTEL",
+      date: "2023",
+      description: "Professional communication skills for engineering contexts",
+      pdfUrl: "/certificates/technical-english-certificate.pdf",
+      thumbnail: "/certificates/technical-english-thumbnail.jpg"
+    },
+    {
+      id: 3,
+      title: "Developing Soft Skills and Personality",
+      issuer: "NPTEL",
+      date: "2023",
+      description: "Personal development and professional soft skills enhancement",
+      pdfUrl: "/certificates/soft-skills-certificate.pdf",
+      thumbnail: "/certificates/soft-skills-thumbnail.jpg"
+    },
+    {
+      id: 4,
+      title: "Forests and their Management",
+      issuer: "NPTEL",
+      date: "2023",
+      description: "Environmental science and forest conservation principles",
+      pdfUrl: "/certificates/forests-management-certificate.pdf",
+      thumbnail: "/certificates/forests-management-thumbnail.jpg"
+    }
   ];
 
   useEffect(() => {
@@ -25,6 +67,18 @@ const App = () => {
     setTheme(newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+  };
+
+  const openCertificate = (certificate) => {
+    setSelectedCertificate(certificate);
+    setShowCertificateModal(true);
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  };
+
+  const closeCertificate = () => {
+    setShowCertificateModal(false);
+    setSelectedCertificate(null);
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
   };
 
   useEffect(() => {
@@ -46,6 +100,18 @@ const App = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close modal when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showCertificateModal && event.target.classList.contains('certificate-modal')) {
+        closeCertificate();
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [showCertificateModal]);
 
   return (
     <div className="portfolio">
@@ -73,6 +139,50 @@ const App = () => {
           </ul>
         </div>
       </nav>
+
+      {/* Certificate Modal */}
+      {showCertificateModal && selectedCertificate && (
+        <div className="certificate-modal">
+          <div className="certificate-modal-content">
+            <div className="certificate-modal-header">
+              <h3>{selectedCertificate.title}</h3>
+              <button className="close-button" onClick={closeCertificate}>×</button>
+            </div>
+            <div className="certificate-modal-body">
+              <div className="certificate-info">
+                <p><strong>Issuer:</strong> {selectedCertificate.issuer}</p>
+                <p><strong>Date:</strong> {selectedCertificate.date}</p>
+                <p><strong>Description:</strong> {selectedCertificate.description}</p>
+              </div>
+              <div className="pdf-viewer">
+                <iframe 
+                  src={selectedCertificate.pdfUrl}
+                  title={selectedCertificate.title}
+                  width="100%"
+                  height="500px"
+                />
+                <div className="pdf-actions">
+                  <a 
+                    href={selectedCertificate.pdfUrl} 
+                    download 
+                    className="btn primary"
+                  >
+                    Download PDF
+                  </a>
+                  <a 
+                    href={selectedCertificate.pdfUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="btn secondary"
+                  >
+                    Open in New Tab
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section id="home" className="hero">
@@ -171,16 +281,6 @@ const App = () => {
               </div>
             </div>
           </div>
-          
-          <div className="certifications">
-            <h3>Certifications</h3>
-            <ul>
-              <li>JAVA with DSA – Apna College</li>
-              <li>Technical English for Engineers – NPTEL</li>
-              <li>Developing Soft Skills and Personality – NPTEL</li>
-              <li>Forests and their Management – NPTEL</li>
-            </ul>
-          </div>
         </div>
       </section>
 
@@ -262,6 +362,41 @@ const App = () => {
                 <li>Achieved 95% accuracy in object detection within 2-meter range</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certificates Section */}
+      <section id="certificates" className="certificates">
+        <div className="container">
+          <h2>Certifications</h2>
+          <p className="section-subtitle">
+            Here are my professional certifications that validate my skills and knowledge in various domains.
+          </p>
+          
+          <div className="certificates-grid">
+            {certificates.map(certificate => (
+              <div 
+                key={certificate.id} 
+                className="certificate-card"
+                onClick={() => openCertificate(certificate)}
+              >
+                <div className="certificate-icon">
+                  <span>📜</span>
+                </div>
+                <div className="certificate-content">
+                  <h3>{certificate.title}</h3>
+                  <p className="certificate-issuer">{certificate.issuer}</p>
+                  <p className="certificate-date">{certificate.date}</p>
+                  <p className="certificate-description">{certificate.description}</p>
+                </div>
+                <div className="certificate-actions">
+                  <button className="view-certificate-btn">
+                    View Certificate
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
