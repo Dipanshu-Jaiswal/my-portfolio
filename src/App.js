@@ -185,18 +185,24 @@ const App = () => {
       )}
 
       {/* Hero Section */}
-      <section id="home" className="hero">
-        <div className="hero-content">
-          <h1>Dipanshu Jaiswal</h1>
-          <h2>Computer Science Student & Full Stack Developer</h2>
-          <p>Passionate about building innovative solutions and eager to learn new technologies to grow throughout my professional journey.</p>
-          <div className="hero-buttons">
-            <a href="#projects" className="btn primary">View My Projects</a>
-            <a href="#contact" className="btn secondary">Get In Touch</a>
-          </div>
-        </div>
-      </section>
+      // ... previous imports and state
 
+{/* Hero Section */}
+  <section id="home" className="hero">
+    <div className="hero-content">
+      <h1>Dipanshu Jaiswal</h1>
+      <h2>Computer Science Student</h2>
+      <p>Passionate about building innovative solutions and eager to learn new technologies to grow throughout my professional journey.</p>
+      <div className="hero-buttons">
+        <a href="#projects" className="btn primary">View My Projects</a>
+        <a href="#contact" className="btn secondary">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+// ... rest of your component remains the same
+
+      {/* About Section */}
       {/* About Section */}
       <section id="about" className="about">
         <div className="container">
@@ -206,7 +212,7 @@ const App = () => {
               <p>
                 I'm a Computer Science student at Shri Vaishnav Vidyapeeth Vishwavidyalaya, 
                 passionate about building innovative solutions through technology. 
-                I specialize in full-stack development with expertise in React.js, Java, and modern web technologies.
+                I have expertise in React.js, Java, and modern web technologies.
                 I enjoy working on projects that solve real-world problems and create meaningful impact.
               </p>
               <div className="education">
@@ -285,6 +291,7 @@ const App = () => {
       </section>
 
       {/* Projects Section */}
+      {/* Projects Section */}
       <section id="projects" className="projects">
         <div className="container">
           <h2>Projects</h2>
@@ -301,7 +308,7 @@ const App = () => {
               <div className="tech-stack">
                 <span>React.js</span>
                 <span>Node.js</span>
-                <span>MongoDB</span>
+                <span>MySQL</span>
                 <span>Google Maps API</span>
                 <span>Socket.io</span>
               </div>
@@ -314,7 +321,14 @@ const App = () => {
               </ul>
               <div className="project-links">
                 <a href="#" className="project-link">Live Demo</a>
-                <a href="#" className="project-link">GitHub</a>
+                <a 
+                  href="https://github.com/dipanshu-jaiswal" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  GitHub
+                </a>
               </div>
             </div>
             
@@ -329,7 +343,7 @@ const App = () => {
               <div className="tech-stack">
                 <span>React.js</span>
                 <span>CSS</span>
-                <span>MongoDB</span>
+                <span>MySQL</span>
                 <span>Machine Learning</span>
               </div>
               <ul className="project-features">
@@ -339,6 +353,16 @@ const App = () => {
                 <li>Implemented real-time email classification and results display</li>
                 <li>Created admin dashboard for system monitoring</li>
               </ul>
+              <div className="project-links">
+                <a 
+                  href="https://github.com/dipanshu-jaiswal" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  GitHub
+                </a>
+              </div>
             </div>
 
             {/* Project 3: IoT Radar System */}
@@ -361,6 +385,16 @@ const App = () => {
                 <li>Implemented data logging and analysis features</li>
                 <li>Achieved 95% accuracy in object detection within 2-meter range</li>
               </ul>
+              <div className="project-links">
+                <a 
+                  href="https://github.com/dipanshu-jaiswal" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
         </div>
