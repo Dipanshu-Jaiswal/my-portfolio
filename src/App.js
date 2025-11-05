@@ -200,7 +200,7 @@ const App = () => {
     </div>
   </section>
 
-// ... rest of your component remains the same
+
 
       {/* About Section */}
       {/* About Section */}
