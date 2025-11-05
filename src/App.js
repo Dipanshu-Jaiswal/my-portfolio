@@ -21,7 +21,7 @@ const App = () => {
       id: 1,
       title: "JAVA with DSA",
       issuer: "Apna College",
-      date: "2023",
+      date: "June 2025 - Present",
       description: "Comprehensive Java programming with Data Structures and Algorithms",
       pdfUrl: "/certificates/java-dsa-certificate.pdf", // Replace with actual path
       thumbnail: "/certificates/java-dsa-thumbnail.jpg" // You can create thumbnails
@@ -29,8 +29,8 @@ const App = () => {
     {
       id: 2,
       title: "Technical English for Engineers",
-      issuer: "NPTEL",
-      date: "2023",
+      issuer: "NPTEL - [IIT MADRAS]",
+      date: "August - October 2024",
       description: "Professional communication skills for engineering contexts",
       pdfUrl: "/certificates/technical-english-certificate.pdf",
       thumbnail: "/certificates/technical-english-thumbnail.jpg"
@@ -38,8 +38,8 @@ const App = () => {
     {
       id: 3,
       title: "Developing Soft Skills and Personality",
-      issuer: "NPTEL",
-      date: "2023",
+      issuer: "NPTEL - [IIT KANPUR]",
+      date: "August - October 2024",
       description: "Personal development and professional soft skills enhancement",
       pdfUrl: "/certificates/soft-skills-certificate.pdf",
       thumbnail: "/certificates/soft-skills-thumbnail.jpg"
@@ -47,8 +47,8 @@ const App = () => {
     {
       id: 4,
       title: "Forests and their Management",
-      issuer: "NPTEL",
-      date: "2023",
+      issuer: "NPTEL - [IIT KANPUR]",
+      date: "January - April 2025",
       description: "Environmental science and forest conservation principles",
       pdfUrl: "/certificates/forests-management-certificate.pdf",
       thumbnail: "/certificates/forests-management-thumbnail.jpg"
