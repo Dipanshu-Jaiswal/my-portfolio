@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { motion } from "framer-motion";
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -18,7 +19,25 @@ const App = () => {
 
   const certificates = [
     {
+      id: 0,
+      title: "IBM Virtual Internship",
+      issuer: "IBM SkillsBuild & Allsoft Solutions",
+      date: "January 2026 - May 2026",
+      description: "Earned a Project Completion Certificate for successfully completing a 14-week industry-oriented program focused on IBM Cloud and cloud technologies.",
+      pdfUrl: "/certificates/ibm-internship-certificate.pdf",
+      thumbnail: "/certificates/ibm-thumbnail.jpg"
+    },
+    {
       id: 1,
+      title: "IBM Cloud Computing Virtual Internship",
+      issuer: "IBM SkillsBuild",
+      date: "February 2026 - March 2026",
+      description: "Completed an IBM Virtual Internship in Cloud Computing with hands-on exposure to cloud concepts, IBM technologies, and modern cloud practices.",
+      pdfUrl: "/certificates/ibm-virtual.pdf",
+      thumbnail: "/certificates/ibm-cloud-thumbnail.jpg"
+    },
+    {
+      id: 2,
       title: "JAVA with DSA",
       issuer: "Apna College",
       date: "June 2025 - Present",
@@ -27,7 +46,7 @@ const App = () => {
       thumbnail: "/certificates/java-dsa-thumbnail.jpg" // You can create thumbnails
     },
     {
-      id: 2,
+      id: 3,
       title: "Technical English for Engineers",
       issuer: "NPTEL - [IIT MADRAS]",
       date: "August - October 2024",
@@ -36,7 +55,7 @@ const App = () => {
       thumbnail: "/certificates/technical-english-thumbnail.jpg"
     },
     {
-      id: 3,
+      id: 4,
       title: "Developing Soft Skills and Personality",
       issuer: "NPTEL - [IIT KANPUR]",
       date: "August - October 2024",
@@ -45,7 +64,7 @@ const App = () => {
       thumbnail: "/certificates/soft-skills-thumbnail.jpg"
     },
     {
-      id: 4,
+      id: 5,
       title: "Forests and their Management",
       issuer: "NPTEL - [IIT KANPUR]",
       date: "January - April 2025",
@@ -189,15 +208,31 @@ const App = () => {
 
 {/* Hero Section */}
   <section id="home" className="hero">
-    <div className="hero-content">
+    <motion.div
+        className="hero-content"
+        initial={{
+          opacity: 0,
+          y: 80,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.8,
+        }}
+      >
       <h1>Dipanshu Jaiswal</h1>
       <h2>Computer Science Student</h2>
       <p>Passionate about building innovative solutions and eager to learn new technologies to grow throughout my professional journey.</p>
       <div className="hero-buttons">
+        <a href="resume/Dipanshu_Resume.pdf" download className="btn primary">
+          📄 Download Resume
+        </a>
         <a href="#projects" className="btn primary">View My Projects</a>
         <a href="#contact" className="btn secondary">Get In Touch</a>
       </div>
-    </div>
+    </motion.div>
   </section>
 
 
@@ -205,7 +240,7 @@ const App = () => {
       {/* About Section */}
       {/* About Section */}
       <section id="about" className="about">
-        <div className="container">
+        <motion.div className="container">
           <h2>About Me</h2>
           <div className="about-content">
             <div className="about-text">
@@ -219,7 +254,7 @@ const App = () => {
                 <h3>Education</h3>
                 <div className="education-item">
                   <h4>Bachelor of Technology in Computer Science</h4>
-                  <p>Shri Vaishnav Vidyapeeth Vishwavidyalaya | 2022 – 2026 | CGPA: 6.7/10</p>
+                  <p>Shri Vaishnav Vidyapeeth Vishwavidyalaya | 2022 – 2026 | CGPA: 7.01/10</p>
                 </div>
                 <div className="education-item">
                   <h4>Senior Secondary (12th)</h4>
@@ -242,7 +277,7 @@ const App = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Skills Section */}
@@ -291,16 +326,57 @@ const App = () => {
       </section>
 
       {/* Projects Section */}
-      {/* Projects Section */}
       <section id="projects" className="projects">
         <div className="container">
           <h2>Projects</h2>
           <div className="projects-grid">
-            {/* Project 1: Sadak-Saathi */}
+            {/* Project 1: StudyNotion */}
             <div className="project-card featured">
-              <div className="project-badge">Major Project</div>
+              {/* <div className="project-badge">Featured Project</div> */}
+              <h3>StudyNotion</h3>
+              <p className="project-meta">
+                Full Stack Learning Management System (LMS)
+              </p>
+              <p className="project-description">
+                StudyNotion is a full-stack Learning Management System (LMS) that enables
+                students to enroll in courses, watch video lectures, and track their
+                learning progress. Instructors can create, manage, and publish courses
+                through a dedicated dashboard.
+              </p>
+              <div className="tech-stack">
+                <span>React.js</span>
+                <span>Node.js</span>
+                <span>Express.js</span>
+                <span>MongoDB</span>
+                <span>Tailwind CSS</span>
+                <span>Redux Toolkit</span>
+                <span>JWT</span>
+                <span>Razorpay</span>
+                <span>Cloudinary</span>
+              </div>
+              <ul className="project-features">
+                <li>Student & Instructor Authentication using JWT</li>
+                <li>Instructor Dashboard for Course Creation & Management</li>
+                <li>Video Lectures with Course Progress Tracking</li>
+                <li>Razorpay Payment Gateway Integration</li>
+                <li>User Profile & Account Management</li>
+              </ul>
+              <div className="project-links">
+                <a
+                  href="https://github.com/Dipanshu-Jaiswal/Ed_Tech-StudyNotion"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+            {/* Project 2: Sadak-Saathi */}
+            <div className="project-card featured">
+              {/* <div className="project-badge">Major Project</div> */}
               <h3>Sadak-Saathi: Road Companion App</h3>
-              <p className="project-meta">Full Stack Project | Team Size: 4 | Technologies: MERN Stack</p>
+              <p className="project-meta">Full Stack Web Application • MERN Stack • Major Academic Project</p>
               <p className="project-description">
                 A comprehensive road assistance and navigation app that provides real-time traffic updates, 
                 emergency services, mechanic locations, and road safety features for travelers.
@@ -320,7 +396,7 @@ const App = () => {
                 <li>Created responsive UI with interactive maps and navigation</li>
               </ul>
               <div className="project-links">
-                <a href="#" className="project-link">Live Demo</a>
+                {/* <a href="#" className="project-link">Live Demo</a> */}
                 <a 
                   href="https://github.com/dipanshu-jaiswal" 
                   target="_blank" 
@@ -332,10 +408,10 @@ const App = () => {
               </div>
             </div>
             
-            {/* Project 2: Email Classifier */}
+            {/* Project 3: Email Classifier */}
             <div className="project-card">
               <h3>Email Classifier [Spam or not-Spam]</h3>
-              <p className="project-meta">Team Project | Team Size: 4 | Monitor: Prof. Unnati Mishra</p>
+              <p className="project-meta">ML-Based Email Classification System • React.js • Team Project</p>
               <p className="project-description">
                 Built the complete frontend interface for an email classification system that detects 
                 spam and ham emails using machine learning algorithms.
@@ -353,7 +429,7 @@ const App = () => {
                 <li>Implemented real-time email classification and results display</li>
                 <li>Created admin dashboard for system monitoring</li>
               </ul>
-              <div className="project-links">
+              {/* <div className="project-links">
                 <a 
                   href="https://github.com/dipanshu-jaiswal" 
                   target="_blank" 
@@ -362,13 +438,13 @@ const App = () => {
                 >
                   GitHub
                 </a>
-              </div>
+              </div> */}
             </div>
 
-            {/* Project 3: IoT Radar System */}
+            {/* Project 4: IoT Radar System */}
             <div className="project-card">
               <h3>IoT-Based RADAR System</h3>
-              <p className="project-meta">Hardware Project | Team Size: 4 | Monitor: Prof. Megha Bairagi</p>
+              <p className="project-meta">Hardware-Based Object Detection System • Arduino • IoT</p>
               <p className="project-description">
                 Designed and implemented a fully functional RADAR system to detect objects using 
                 ultrasonic sensors and rotating servo motor with 180° scanning coverage.
@@ -385,7 +461,7 @@ const App = () => {
                 <li>Implemented data logging and analysis features</li>
                 <li>Achieved 95% accuracy in object detection within 2-meter range</li>
               </ul>
-              <div className="project-links">
+              {/* <div className="project-links">
                 <a 
                   href="https://github.com/dipanshu-jaiswal" 
                   target="_blank" 
@@ -394,7 +470,7 @@ const App = () => {
                 >
                   GitHub
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
