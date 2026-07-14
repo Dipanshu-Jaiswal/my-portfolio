@@ -204,8 +204,6 @@ const App = () => {
       )}
 
       {/* Hero Section */}
-      // ... previous imports and state
-
 {/* Hero Section */}
   <section id="home" className="hero">
     <motion.div
