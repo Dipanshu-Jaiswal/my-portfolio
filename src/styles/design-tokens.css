@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Design Tokens — Devix / Xfolio Inspired Creative Palette
+   Electric Lime Accent (#C6FF3D) on Near-Black (#0B0B0C) / Off-White (#F5F6F8)
+   ========================================================================== */
+
+:root {
+  /* ONE Accent Variable as requested */
+  --accent: #C6FF3D;
+  --accent-rgb: 198, 255, 61;
+  --accent-hover: #b4f227;
+  --accent-dim: rgba(198, 255, 61, 0.12);
+  --accent-glow: rgba(198, 255, 61, 0.28);
+  --accent-text: #0B0B0C; /* High contrast text on top of lime accent */
+  --accent-fg: #C6FF3D;   /* High contrast accent for text/icons on dark surfaces: 15.85:1 (WCAG AAA) */
+
+  /* Neutral Surface System - Dark Mode (Default) */
+  --bg-main: #0B0B0C;
+  --bg-card: #131316;
+  --bg-elevated: #1A1A1F;
+  --bg-glass: rgba(11, 11, 12, 0.85);
+  --bg-glass-card: rgba(19, 19, 22, 0.85);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(198, 255, 61, 0.45);
+
+  --text-main: #F4F4F6;
+  --text-secondary: #9E9EA8;
+  --text-muted: #666672;
+  --text-inverse: #0B0B0C;
+
+  /* Typography */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Shadows - Minimal & crisp */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 30px -4px rgba(0, 0, 0, 0.7);
+  --shadow-accent: 0 0 25px rgba(198, 255, 61, 0.3);
+
+  /* Radii & Transitions */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light Mode Overrides */
+[data-theme="light"] {
+  --accent: #C6FF3D;       /* Background lime for pills & buttons with dark text */
+  --accent-fg: #2D6600;    /* Dark olive accent for text on light backgrounds: 6.96:1 contrast (WCAG AAA) */
+  --accent-hover: #245200;
+  --accent-dim: rgba(45, 102, 0, 0.1);
+  --accent-glow: rgba(45, 102, 0, 0.2);
+  --accent-text: #0B0B0C;  /* Text on top of lime background */
+
+  --bg-main: #F5F6F8;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #EBECEF;
+  --bg-glass: rgba(245, 246, 248, 0.88);
+  --bg-glass-card: rgba(255, 255, 255, 0.9);
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-card: rgba(0, 0, 0, 0.12);
+  --border-hover: rgba(45, 102, 0, 0.4);
+
+  --text-main: #0B0B0C;
+  --text-secondary: #4A4B54;
+  --text-muted: #727380;
+  --text-inverse: #FFFFFF;
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px -4px rgba(0, 0, 0, 0.1);
+  --shadow-accent: 0 0 25px rgba(45, 102, 0, 0.25);
+}
+
+/* Prefers Reduced Motion Accessibility Override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
